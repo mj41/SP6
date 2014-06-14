@@ -43,8 +43,8 @@ multi method process(Str $base_name) {
 
 	CATCH {
 		when X::SP6::Error { die $_ }
-		when X::Comp { die "Error compiling template '$base_name':\n$_" }
-		default { die "Error compiling template '$base_name':\n$_" }
+		when X::Comp { die "Error while compiling template '$base_name':\n$_" }
+		default { die "Error running template '$base_name':\n$_" }
 	}
 }
 
@@ -66,8 +66,8 @@ multi method process(Str $base_name, Str :$inside!) {
 
 	CATCH {
 		when X::SP6::Error { die $_ }
-		when X::Comp { die "Error compiling template '$base_name':\n$_" }
-		default { die "Error compiling template '$base_name':\n$_" }
+		when X::Comp { die "Error while compiling template '$base_name' inside '$inside':\n$_" }
+		default { die "Error while running template '$base_name' inside '$inside':\n$_" }
 	}
 }
 
