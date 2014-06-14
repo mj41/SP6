@@ -1,0 +1,5 @@
+aa { "line $?LINE " ~ include 'inc/include-line-inner.sp6'}
+cc
+{"line $?LINE"}
+dd { "line $?LINE " ~ include 'inc/include-line-inner.sp6'}
+ee
