@@ -15,3 +15,10 @@ multi sub MAIN(Str :$templ!, Str :$templ_dir='.', Str :$inside, Bool :$debug) {
 	say "output:" if $debug;
 	say $out;
 }
+
+multi sub MAIN(Str :$e!, Str :$templ_dir='.', Str :$inside, Bool :$debug) {
+	my $d_sp6 = SP6.new( :$templ_dir, :$debug );
+	my $out = $d_sp6.process(tstr => $e, inside_tfpath => $inside);
+	say "output:" if $debug;
+	say $out;
+}
