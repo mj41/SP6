@@ -16,7 +16,7 @@ method tstr2tcode(Str $str) {
 	return 'Qc ｢' ~ $str ~ '｣;';
 }
 
-method get_eval_str(Str $tfpath) {
+method slurp_tcode(Str $tfpath) {
 	my $full_tfpath = self.full_tfpath($tfpath);
 
 	die X::SP6::Error.new(
@@ -24,11 +24,7 @@ method get_eval_str(Str $tfpath) {
 	) unless $full_tfpath.IO ~~ :e;
 	say "Template fpath: '$full_tfpath'" if $.debug;
 
-	return self.tstr2tcode( slurp($full_tfpath) );
-}
-
-method get_sp6_file_code(Str $tfpath) {
-	my $tcode = self.get_eval_str($tfpath);
+	my $tcode = self.tstr2tcode( slurp($full_tfpath) );
 	say "code: {$tcode.perl}" if $.debug;
 	return $tcode;
 }
@@ -64,7 +60,7 @@ multi method process_tstr_inside(Str $tstr, Str :$inside_tfpath!) {
 		return self.process_file($inc_tfpath);
 	}
 
-	my $inside_tcode = self.get_sp6_file_code($inside_tfpath);
+	my $inside_tcode = self.slurp_tcode($inside_tfpath);
 	my $out = EVAL $inside_tcode;
 	return $out;
 
@@ -82,7 +78,7 @@ multi method process_file(Str $tfpath) {
 		return self.process_file($inc_tfpath);
 	}
 
-	my $tcode = self.get_sp6_file_code($tfpath);
+	my $tcode = self.slurp_tcode($tfpath);
 	my $out = EVAL $tcode;
 	return $out;
 
@@ -105,7 +101,7 @@ multi method process_file_inside(Str $tfpath, Str :$inside_tfpath!) {
 		return self.process_file($inc_tfpath);
 	}
 
-	my $inside_tcode = self.get_sp6_file_code($inside_tfpath);
+	my $inside_tcode = self.slurp_tcode($inside_tfpath);
 	my $out = EVAL $inside_tcode;
 	return $out;
 
