@@ -8,19 +8,19 @@ class X::SP6::Error is Exception {
      method message() { return $.reason };
 }
 
-method templ_fpath(Str $fname) {
-	return $.templ_dir ~ '/' ~ $fname;
+method full_tfpath(Str $tfpath) {
+	return $.templ_dir ~ '/' ~ $tfpath;
 }
 
 method get_eval_str(Str $tfpath) {
-	my $fpath = self.templ_fpath($tfpath);
+	my $full_tfpath = self.full_tfpath($tfpath);
 
 	die X::SP6::Error.new(
-		reason => "Template file $tfpath (path '$fpath') not found."
-	) unless $fpath.IO ~~ :e;
-	say "Template fpath: '$fpath'" if $.debug;
+		reason => "Template file $tfpath (path '$full_tfpath') not found."
+	) unless $full_tfpath.IO ~~ :e;
+	say "Template fpath: '$full_tfpath'" if $.debug;
 
-	return 'Qc ｢' ~ slurp($fpath) ~ '｣;';
+	return 'Qc ｢' ~ slurp($full_tfpath) ~ '｣;';
 }
 
 method get_sp6_file_code(Str $tfpath) {
