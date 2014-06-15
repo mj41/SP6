@@ -1,5 +1,6 @@
-use v6;
+#!perl6
 
+use v6;
 use SP6;
 
 multi sub MAIN(Str $templ, Str :$templ_dir='.', Str :$inside, Bool :$debug) {
