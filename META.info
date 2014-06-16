@@ -1,7 +1,7 @@
 {
     "name" : "SP6",
     "version" : "0.1.1",
-    "description" : "Simple template toolkit for Perl 6",
+    "description" : "Simple templates for Perl 6",
     "author" : "Michal Jurosz",
     "source-type" : "git",
     "source-url" : "git://github.com/mj41/SP6.git",

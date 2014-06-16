@@ -1,5 +1,5 @@
-SP6 - Simple Perl 6 templating toolkit
-======================================
+SP6 - Simple Perl 6 templates
+=============================
 
 Examples
 --------
