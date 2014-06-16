@@ -1,6 +1,6 @@
 {
     "name" : "SP6",
-    "version" : "0.1.0",
+    "version" : "0.1.1",
     "description" : "Simple template toolkit for Perl 6",
     "author" : "Michal Jurosz",
     "source-type" : "git",

@@ -29,12 +29,30 @@ method slurp_tcode(Str $tfpath) {
 	return $tcode;
 }
 
+multi method process_include(Str $tfpath, %v is copy) {
+	use SP6::ProcessMethods;
+
+	sub include($inc_tfpath) {
+		return self.process_include($inc_tfpath, %v);
+	}
+
+	my $tcode = self.slurp_tcode($tfpath);
+	my $out = EVAL $tcode;
+	return $out;
+
+	CATCH {
+		when X::SP6::Error { die $_ }
+		when X::Comp { die "Error while compiling included template '$tfpath':\n$_" }
+		default { die "Error running included template '$tfpath':\n$_" }
+	}
+}
+
 multi method process_tstr(Str $tstr) {
 	my %v;
 	use SP6::ProcessMethods;
 
 	sub include($inc_tfpath) {
-		return self.process_file($inc_tfpath);
+		return self.process_include($inc_tfpath, %v);
 	}
 
 	my $tcode = self.tstr2tcode( $tstr );
@@ -57,7 +75,7 @@ multi method process_tstr_inside(Str $tstr, Str :$inside_tfpath!) {
 	}
 
 	sub include($inc_tfpath) {
-		return self.process_file($inc_tfpath);
+		return self.process_include($inc_tfpath, %v);
 	}
 
 	my $inside_tcode = self.slurp_tcode($inside_tfpath);
@@ -75,7 +93,7 @@ multi method process_file(Str $tfpath) {
 	use SP6::ProcessMethods;
 
 	sub include($inc_tfpath) {
-		return self.process_file($inc_tfpath);
+		return self.process_include($inc_tfpath, %v);
 	}
 
 	my $tcode = self.slurp_tcode($tfpath);
@@ -98,7 +116,7 @@ multi method process_file_inside(Str $tfpath, Str :$inside_tfpath!) {
 	}
 
 	sub include($inc_tfpath) {
-		return self.process_file($inc_tfpath);
+		return self.process_include($inc_tfpath, %v);
 	}
 
 	my $inside_tcode = self.slurp_tcode($inside_tfpath);
