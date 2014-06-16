@@ -1,5 +1,5 @@
-aa { "line $?LINE " ~ include 'inc/include-line-inner.sp6'}
+aa { "line $?LINE " ~ include 'include-line-inner.sp6'}
 cc
 {"line $?LINE"}
-dd { "line $?LINE " ~ include 'inc/include-line-inner.sp6'}
+dd { "line $?LINE " ~ include 'include-line-inner.sp6'}
 ee
