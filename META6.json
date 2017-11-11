@@ -14,7 +14,8 @@
         "SP6::ProcessMethods" : "lib/SP6/ProcessMethods.pm6"
     },
     "support": {
-        "bugtracker": "https://github.com/mj41/SP6/issues"
+        "bugtracker": "https://github.com/mj41/SP6/issues",
+        "license": "http://www.perlfoundation.org/artistic_license_2_0"
     },
     "tags": [ "template" ],
     "test-depends": [
