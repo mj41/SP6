@@ -1,7 +1,7 @@
 {
   "name": "SP6",
   "description": "Simple templates for Raku",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "perl": "6.d",
   "authors": [
     "Michal Jurosz"
