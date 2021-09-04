@@ -1,3 +1,4 @@
-blib/
-temp/
+.idea/
 lib/.precomp/
+temp/
+*.iml
