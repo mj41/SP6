@@ -1,9 +1,9 @@
 Run tests
 ---------
 
-    perl6 -Ilib t/vars.t
+    raku -Ilib t/vars.t
 
 Run all tests
 --------------
 
-    prove -e'perl6 -Ilib' t/
+    prove -e'raku -Ilib' t/
