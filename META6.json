@@ -1,7 +1,7 @@
 {
   "name": "SP6",
   "description": "Simple templates for Raku",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "perl": "6.d",
   "authors": [
     "Michal Jurosz"
@@ -14,8 +14,8 @@
     "Test::META"
   ],
   "provides": {
-    "SP6": "lib/SP6.pm6",
-    "SP6::ProcessMethods": "lib/SP6/ProcessMethods.pm6"
+    "SP6": "lib/SP6.rakumod",
+    "SP6::ProcessMethods": "lib/SP6/ProcessMethods.rakumod"
   },
   "support": {
     "bugtracker": "https://github.com/mj41/SP6/issues",
