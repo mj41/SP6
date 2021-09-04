@@ -1,5 +1,5 @@
-SP6 - Simple Perl 6 templates
-=============================
+SP6 - Simple Raku templates
+===========================
 
 Examples
 --------
