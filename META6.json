@@ -19,7 +19,7 @@
   },
   "support": {
     "bugtracker": "https://github.com/mj41/SP6/issues",
-    "license": "http://www.perlfoundation.org/artistic_license_2_0"
+    "license": "https://www.apache.org/licenses/LICENSE-2.0"
   },
   "license": "Apache-2.0",
   "tags": [
